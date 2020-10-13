@@ -71,6 +71,7 @@ const tryLocalSignin = dispatch => async () => {
             navigate('Signin');
         } else {
             let token = auth.token;
+            console.log(auth)
             await AsyncStorage.setItem('token', token);
             const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
             const { id, name } = await response.json();
